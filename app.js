@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 //allows express to understand graphql
 //this ends up being our 'one endpoint'?
 const graphqlHTTP = require('express-graphql')
@@ -12,6 +13,8 @@ mongoose.connect('mongodb://localhost/gql-ninja')
 mongoose.connection.once('open', () => {
     console.log('connected to database')
 })
+
+app.use(cors())
 
 //get's fired off when ever a request to /graphql is made
 app.use('/graphql', graphqlHTTP({

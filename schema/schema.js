@@ -79,7 +79,7 @@ const RootQuery = new GraphQLObjectType({
                 return Author.find({})
             }
         }
-    }
+    },
 })
 
 
