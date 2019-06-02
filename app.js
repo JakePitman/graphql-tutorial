@@ -16,7 +16,7 @@ mongoose.connection.once('open', () => {
 
 app.use(cors())
 
-//get's fired off when ever a request to /graphql is made
+//gets fired off when ever a request to /graphql is made
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
