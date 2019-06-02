@@ -19,6 +19,7 @@ const BookType = new GraphQLObjectType({
         id: {type: GraphQLString },
         name: {type: GraphQLString},
         genre: {type: GraphQLString},
+        authorId: {type: GraphQLID},
         author: {
             type: AuthorType,
             //parent, in this case, is the data from the current book being requested
@@ -115,7 +116,7 @@ const Mutation = new GraphQLObjectType({
                 let book = new Book({
                     name: args.name,
                     genre: args.genre,
-                    // authorid: args.authorId
+                    authorId: args.authorId,
                     author: Author.findById(args.authorId)
                 })
                 return book.save() 
